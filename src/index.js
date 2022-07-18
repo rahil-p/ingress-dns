@@ -45,7 +45,7 @@ const respond = (dnsRequest, dnsResponseSend) => {
                     } else {
                         const match = host.match(wildcardRegex);
                         if (match) {
-                            const hostRegex = new RegExp(`[^*]+[.]${_.escapeRegExp(match.groups.anydomain)}`);
+                            const hostRegex = new RegExp(`[^*]+[.]${escapeRegex(match.groups.anydomain)}`);
                             for (const name of names) {
                                 if (name.match(hostRegex)) {
                                     confirmedNames.push(name);
